@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Button</title>
+	<style>
+		html,body {
+			width: 100%;
+			height: 100%;
+		}
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			
+			background-color: rgb(100,100,100);
+		}
+		img {
+			width: 180px;
+			height: 180px;
+			border-radius: 180px;
+		}
+		h1 {
+			text-align: center;
+		}
+		.mobile {
+			background-color: rgb(129,129,129);
+			border-radius: 20px
+		}
+	</style>
+</head>
+<body>
+	<div class="mobile">
+		<h1>BOTCOIN</h1>
+		<h1 id="counted">0</h1>
+		<br>
+		<img src="C:\Users\piter\Desktop\coin.jpg" id="coin">
+	</div>
+	<div>
+		<br>
+		<p>Buy multiplyers, Each double costs 20 coins</p>
+		<p id="ratio">2X</p>
+		<button id="buy">Buy</button>
+		<p id="error"></p>
+	</div>
+
+	<script type="text/javascript">
+		console.log("Hi");
+		let button = document.getElementById("coin");
+		let counted = document.getElementById("counted");
+		let buy = document.getElementById("buy");
+		let account = document.getElementById("acc");
+		let error = document.getElementById("error");
+		let ratio = document.getElementById("ratio");
+		let i = 0;
+		let m = 1;
+		const cost = 20;
+
+		
+
+		buy.addEventListener("click", function mult() {
+			console.log("Mult");
+			if (i>20){
+				m = m*2;
+				i = i - 20;
+				error.innerHTML = "";
+				counted.innerHTML = i;
+				ratio.innerHTML = m +"X";
+			}
+			else {
+				error.innerHTML = "Sorry you have insufficient coin to purchase the survice";
+				counted.innerHTML = i;
+			}
+			
+		})
+
+		button.addEventListener("click", function Count() {
+			i = i + m;
+			counted.innerHTML = i;
+			ratio.innerHTML = m +"X";
+		})
+
+		ratio.innerHTML = m +"X";
+	</script>
+</body>
+</html>
